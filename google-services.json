@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1035116503202",
+    "project_id": "summareconsensor",
+    "storage_bucket": "summareconsensor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035116503202:android:698b5f013d1b7ef7af37fb",
+        "android_client_info": {
+          "package_name": "com.example.summareconsensor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035116503202-rih6d45seoi14bj039brbfhi37m74i8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtzfG7I3-lWlRb1tWDC8hd-YO8E6zHRtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035116503202-rih6d45seoi14bj039brbfhi37m74i8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
