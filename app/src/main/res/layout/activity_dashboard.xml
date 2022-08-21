@@ -10,13 +10,13 @@
         android:id="@+id/dashboard"
         android:layout_width="146dp"
         android:layout_height="35dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="136dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="6dp"
         android:text="@string/dashboard"
         android:textAppearance="@style/dashboard"
         android:gravity="top"
+
         />
 
     <Button
@@ -29,15 +29,45 @@
         android:layout_alignParentEnd="true"
         />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnsoil"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/dashboardbtn"
+        android:background="@drawable/soilmoisture"
         android:layout_below="@id/dashboard"
         android:layout_centerHorizontal="true"
+        android:text="Soil Moisture"
+        android:textSize="32dp"
         />
+
+    <ImageButton
+        android:id="@+id/btnairquality"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/airquality"
+        android:layout_below="@id/btnsoil"
+        android:layout_centerHorizontal="true"
+        android:text="Air Quality"
+        android:textSize="32dp"
+        />
+
+
+    <Button
+        android:id="@+id/btnaddmore"
+        android:layout_marginTop="25dp"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:background="@drawable/soilmoisture"
+        android:layout_below="@id/btnairquality"
+        android:layout_centerHorizontal="true"
+        android:text="add more"
+        android:textSize="32dp"
+        android:textColor="#000"
+        />
+
+
 
 
 
