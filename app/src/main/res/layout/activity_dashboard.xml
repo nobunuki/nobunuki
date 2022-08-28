@@ -27,6 +27,7 @@
         android:background="@drawable/ic_baseline_notifications_24"
         android:layout_marginEnd="20dp"
         android:layout_alignParentEnd="true"
+
         />
 
     <ImageButton
@@ -56,14 +57,13 @@
 
     <Button
         android:id="@+id/btnaddmore"
-        android:layout_marginTop="25dp"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
-        android:background="@drawable/soilmoisture"
+        android:layout_marginTop="125dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button2"
         android:layout_below="@id/btnairquality"
-        android:layout_centerHorizontal="true"
         android:text="add more"
-        android:textSize="32dp"
+        android:textSize="18dp"
         android:textColor="#000"
         />
 
