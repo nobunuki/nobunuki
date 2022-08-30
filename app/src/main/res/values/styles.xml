@@ -15,8 +15,13 @@
     <style name="dashboard">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">#FB5200</item>
-
     </style>
+
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/circle</item>
+    </style>
+
 
 
 </resources>
