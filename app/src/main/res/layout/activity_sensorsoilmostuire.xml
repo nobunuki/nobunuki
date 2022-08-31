@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".sensorsoilmostuire">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/txttittle"
@@ -20,7 +24,7 @@
         android:layout_below="@+id/txttittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Soil Moisture"
+        android:text="@string/lokasi_a"
         android:layout_marginStart="20dp"
         android:textAppearance="@style/dashboard"
         />
@@ -47,7 +51,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
        android:layout_below="@id/progress_bar"
         android:layout_centerInParent="true"
-        tools:text="60%" />
+        tools:text="" />
 
 
-</RelativeLayout>
+
+    </RelativeLayout>
+
+
+</ScrollView>

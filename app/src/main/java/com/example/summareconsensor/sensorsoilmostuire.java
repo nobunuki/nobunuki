@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class sensorsoilmostuire extends AppCompatActivity {
-    private TextView dataair;
+    private TextView dataair, progress_text;
     private ProgressBar progress_bar;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -27,6 +27,7 @@ public class sensorsoilmostuire extends AppCompatActivity {
         DocumentReference data1out = db.collection("SummareconSensor2").document("Soil");
         dataair = findViewById(R.id.data1number);
         progress_bar = findViewById(R.id.progress_bar);
+        progress_text = findViewById(R.id.text_view_progress);
 
 
 
@@ -38,10 +39,11 @@ public class sensorsoilmostuire extends AppCompatActivity {
                 Double dataA = snapshot.getDouble("a");
                 int i = Integer.valueOf(dataA.intValue());
                 progress_bar.setProgress(i);
+                progress_bar.setMax(12);
 
 
                 String txtDataA = String.valueOf(dataA);
-               dataair.setText(txtDataA);
+                progress_text.setText(txtDataA);
 
             }
         });
