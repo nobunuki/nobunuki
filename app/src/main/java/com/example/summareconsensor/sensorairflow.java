@@ -1,11 +1,18 @@
 package com.example.summareconsensor;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -14,7 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class sensorairflow extends AppCompatActivity {
     private TextView dataair;
-     FirebaseFirestore db = FirebaseFirestore.getInstance();
+     FirebaseDatabase db;
+        DatabaseReference dr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,26 +30,32 @@ public class sensorairflow extends AppCompatActivity {
         setContentView(R.layout.activity_sensorairflow);
 
 
-        DocumentReference data1out = db.collection("SummareconSensor2").document("AirFlow");
+
+        db = FirebaseDatabase.getInstance();
+        dr = db.getReference("sensor");
         dataair = findViewById(R.id.data1number);
 
 
-        data1out.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        getData();
+
+
+
+
+
+
+    }
+
+    private void getData() {
+        dr.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-
-                Double dataA = snapshot.getDouble("a");
-                String txtDataA = String.valueOf(dataA);
-                dataair.setText(txtDataA);
-
+            public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
             }
-        });
 
-
-
-
-
-
+            @Override
+            public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
+                Toast.makeText(sensorairflow.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        })
     }
 }

@@ -8,5 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="summarecon">#FB5200</color>
+    <color name="red">#f75151</color>
+    <color name="yellow">#fff380</color>
+    <color name="green">#306754</color>
+
 
 </resources>

@@ -25,7 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lokasi_a"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="14dp"
+        android:textSize="14dp"
+        android:layout_marginTop="30dp"
         android:textAppearance="@style/dashboard"
         />
 

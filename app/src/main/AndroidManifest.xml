@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SummareconSensor">
         <activity android:name=".sensorairflow"></activity>
-        <activity android:name=".sensorsoilmostuire" />
+        <activity android:name=".sensorsoilmostuire"
+            android:exported="true">
+
+        </activity>
         <activity android:name=".Login"
             android:exported="true"
             >
