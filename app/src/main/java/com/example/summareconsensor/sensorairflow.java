@@ -18,44 +18,35 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.database.DatabaseError;
+
+import org.jetbrains.annotations.NotNull;
 
 public class sensorairflow extends AppCompatActivity {
     private TextView dataair;
-     FirebaseDatabase db;
-        DatabaseReference dr;
+    FirebaseDatabase db;
+    DatabaseReference dr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensorairflow);
-
-
-
-        db = FirebaseDatabase.getInstance();
-        dr = db.getReference("sensor");
         dataair = findViewById(R.id.data1number);
 
 
-        getData();
-
-
-
-
-
-
-    }
-
-    private void getData() {
-        dr.addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+        myRef.child("sensor").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
-                String value = snapshot.getValue(String.class);
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                dataair.setText(snapshot.child("airhumidity").getValue(Integer.class));
             }
 
             @Override
-            public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
-                Toast.makeText(sensorairflow.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                System.out.println(error.getDetails() + " " + error.getMessage());
             }
-        })
+
+        });
     }
 }
