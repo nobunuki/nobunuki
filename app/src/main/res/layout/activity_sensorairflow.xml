@@ -26,7 +26,7 @@
         />
 
     <TextView
-        android:id="@+id/data1number"
+        android:id="@+id/dataoutput"
         android:layout_below="@+id/data1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

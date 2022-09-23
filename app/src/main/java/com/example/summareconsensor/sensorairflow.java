@@ -31,7 +31,7 @@ public class sensorairflow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensorairflow);
-        dataair = findViewById(R.id.data1number);
+        dataair = findViewById(R.id.dataoutput);
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
