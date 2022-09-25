@@ -10,19 +10,21 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class sensorsoilmostuire extends AppCompatActivity {
-    private TextView dataair, progress_text;
+    private TextView dataair, progress_text, info_text;
     private ProgressBar progress_bar;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private Firebase myRef;
+
 
 
     @Override
@@ -30,57 +32,44 @@ public class sensorsoilmostuire extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensorsoilmostuire);
 
-        DocumentReference data1out = db.collection("SummareconSensor2").document("Soil");
-        dataair = findViewById(R.id.data1number);
+        dataair = findViewById(R.id.data1);
         progress_bar = findViewById(R.id.progress_bar);
         progress_text = findViewById(R.id.text_view_progress);
-
-
-
-        data1out.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        info_text = findViewById(R.id.text_view_info);
+        Firebase.setAndroidContext(this);
+        myRef = new Firebase("https://summareconsensor-default-rtdb.firebaseio.com/sensor");
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String sensor = dataSnapshot.child("soilmoisture").getValue(String.class);
+                int soil = Integer.parseInt(sensor.toString());
+                progress_text.setText(sensor);
 
-                Double dataA = snapshot.getDouble("a");
+                if(soil<40){
+                    info_text.setText("Kurang Air");
+                }else if(soil<80){
+                    info_text.setText("Cukup Baik!");
+                }else if (soil >100){
+                    info_text.setText("Bagus!");
+                }else{
+                    Toast.makeText(getApplicationContext(), "Error, Please Contact our Administrator!",
+                            Toast.LENGTH_LONG).show();
+                }
 
-                progress_bar.setMax(12);
+                progress_bar.setMax(100);
+                progress_bar.setProgress(soil);
+            }
 
-                int i = Integer.valueOf(dataA.intValue());
-               // if (i <= 4){
-                    //warna jadi merah tapi progress ga kebaca
-                   // progress_bar.setProgressTintList(ColorStateList.valueOf(Color.RED));
-                    //progress kebaca di database tapi ga jadi warna merah
-                   // progress_bar.setProgress(i);
-
-                    progress_bar.setMax(12);
-               // }  if (i>=5){
-                   // progress_bar.setProgressTintList(ColorStateList.valueOf(Color.RED));
-                   // progress_bar.setProgress(i);
-
-                 //   progress_bar.setMax(12);
-               // } if (i>=8){
-
-                   // progress_bar.setProgressTintList(ColorStateList.valueOf(Color.RED));
-                  //  progress_bar.setProgress(i);
-                   // progress_bar.setMax(12);
-
-                //}
-                progress_bar.setMax(12);
-
-
-                String txtDataA = String.valueOf(dataA);
-                progress_text.setText(txtDataA);
-
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                Toast.makeText(getApplicationContext(), "Error, Please Contact our Administrator!",
+                        Toast.LENGTH_LONG).show();
             }
         });
 
 
 
 
-    }
-
-    private void updateProgressBar() {
 
     }
 }

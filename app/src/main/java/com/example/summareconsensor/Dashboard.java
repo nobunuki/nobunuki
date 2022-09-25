@@ -31,7 +31,7 @@ ImageButton airflowbtn;
         airflowbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), sensorairflow.class);
+                Intent intent = new Intent(getApplicationContext(), airflow.class);
                 startActivity(intent);
             }
         });

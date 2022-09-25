@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.6'
     implementation platform('com.google.firebase:firebase-bom:30.3.2')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.firebase:firebase-client-android:2.3.1'
 
     //GaugeChart
     implementation 'pl.pawelkleczkowski.customgauge:CustomGauge:1.0.4'

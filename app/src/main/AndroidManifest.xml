@@ -9,26 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SummareconSensor">
-        <activity android:name=".sensorairflow"
+        <activity android:name=".airflow"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".sensorsoilmostuire"
+        <activity
+            android:name=".sensorsoilmostuire"
             android:exported="true">
 
         </activity>
-        <activity android:name=".Login"
+        <activity
+            android:name=".Login"
             android:exported="true">
 
         </activity>
         <activity
             android:name=".Dashboard"
             android:exported="true">
+
         </activity>
         <activity android:name=".MainActivity" />
     </application>
