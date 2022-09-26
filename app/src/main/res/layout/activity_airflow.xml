@@ -9,33 +9,20 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/txttittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AirFlow"
+        android:text="Air Quality"
         android:layout_centerHorizontal="true"
         android:textAppearance="@style/dashboard"
         />
 
-    <TextView
-        android:id="@+id/data1"
-        android:layout_below="@+id/txttittle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lokasi_a"
-        android:layout_marginStart="14dp"
-        android:textSize="14dp"
-        android:layout_marginTop="30dp"
-        android:textAppearance="@style/dashboard"
-        />
-
-
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:layout_below="@+id/data1"
+        android:layout_below="@+id/txttittle"
         style="@style/CircularDeterminateProgressBar"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -47,24 +34,50 @@
         tools:progress="" />
 
 
-    <TextView
-        android:id="@+id/text_view_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/dashboard"
-        android:layout_below="@id/progress_bar"
-        android:layout_centerInParent="true"
-        tools:text=""
-        />
+        <TextView
+            android:id="@+id/text_view_progressair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_bar"
+            android:layout_centerInParent="true"
+            android:textAppearance="@style/dashboard"
+            tools:text="" />
 
         <TextView
-            android:id="@+id/text_view_info"
+            android:id="@+id/text_view_infoair"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/dashboard"
-            android:layout_below="@id/text_view_progress"
+            android:layout_below="@id/text_view_progressair"
             android:layout_centerInParent="true"
             tools:text=""
+            />
+        <TextView
+            android:id="@+id/temperatureair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_infoair"
+            android:text="Temperature"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/dashboard"
+            />
+
+        <TextView
+            android:id="@+id/txttemperatureair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/temperatureair"
+            android:layout_centerInParent="true"
+            android:textAppearance="@style/dashboard"
+            tools:text="" />
+        <TextView
+            android:id="@+id/historyair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txttemperatureair"
+            android:text="History"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/dashboard"
             />
     </RelativeLayout>
 
