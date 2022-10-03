@@ -1,6 +1,8 @@
 package com.example.summareconsensor;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -11,30 +13,37 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class Dashboard extends AppCompatActivity {
-ImageButton soilmoisturebtn;
-ImageButton airflowbtn;
+RecyclerView recyclerviewer;
+String s1[];
+int images[] = {R.drawable.airquality,R.drawable.soilmoisture};
+//ImageButton soilmoisturebtn;
+//ImageButton airflowbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        recyclerviewer = findViewById(R.id.rcyviewer);
+        s1 = getResources().getStringArray(R.array.dashboardbutton);
+        adapter adapter = new adapter(this, s1, images);
+        recyclerviewer.setAdapter(adapter);
+        recyclerviewer.setLayoutManager(new LinearLayoutManager(this));
+        //soilmoisturebtn = (ImageButton) findViewById(R.id.btnsoil);
+        //soilmoisturebtn.setOnClickListener(new View.OnClickListener(){
+        //    @Override
+        //    public void onClick(View v) {
+        //        Intent intent = new Intent(getApplicationContext(), sensorsoilmostuire.class);
+        //        startActivity(intent);
+        //    }
+        //});
 
-        soilmoisturebtn = (ImageButton) findViewById(R.id.btnsoil);
-        soilmoisturebtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), sensorsoilmostuire.class);
-                startActivity(intent);
-            }
-        });
-
-        airflowbtn = (ImageButton) findViewById(R.id.btnairquality);
-        airflowbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), airflow.class);
-                startActivity(intent);
-            }
-        });
+        //airflowbtn = (ImageButton) findViewById(R.id.btnairquality);
+        //airflowbtn.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Intent intent = new Intent(getApplicationContext(), airflow.class);
+        //        startActivity(intent);
+        //    }
+        //});
 
 
     }

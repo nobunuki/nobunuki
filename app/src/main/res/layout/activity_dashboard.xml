@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Dashboard">
-
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rcyviewer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20sp"
+    android:layout_below="@id/dashboard"
+    android:layout_centerHorizontal="true"
+    />
+    <TextView
+        android:id="@+id/dashboard"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="6dp"
+        android:text="@string/dashboard"
+        android:textAppearance="@style/dashboard"
+        android:gravity="top"
+        />
     <Button
         android:id="@+id/btnhamburger"
         android:layout_marginTop="11dp"
@@ -15,20 +32,6 @@
         android:layout_marginStart="20dp"
         android:layout_alignParentStart="true"
         />
-
-    <TextView
-        android:id="@+id/dashboard"
-        android:layout_width="146dp"
-        android:layout_height="35dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="6dp"
-        android:text="@string/dashboard"
-        android:textAppearance="@style/dashboard"
-        android:gravity="top"
-
-        />
-
     <Button
         android:id="@+id/btnnotif"
         android:layout_marginTop="11dp"
@@ -37,48 +40,16 @@
         android:background="@drawable/ic_baseline_notifications_24"
         android:layout_marginEnd="20dp"
         android:layout_alignParentEnd="true"
-
         />
-
-    <ImageButton
-        android:id="@+id/btnsoil"
-        android:layout_marginTop="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/soilmoisture"
-        android:layout_below="@id/dashboard"
-        android:layout_centerHorizontal="true"
-        android:text="Soil Moisture"
-        android:textSize="32dp"
-        />
-
-    <ImageButton
-        android:id="@+id/btnairquality"
-        android:layout_marginTop="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/airquality"
-        android:layout_below="@id/btnsoil"
-        android:layout_centerHorizontal="true"
-        android:text="Air Quality"
-        android:textSize="32dp"
-        />
-
-
     <Button
         android:id="@+id/btnaddmore"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="50sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button2"
-        android:layout_below="@id/btnairquality"
+        android:layout_below="@id/rcyviewer"
         android:text="add more"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textColor="#000"
         />
-
-
-
-
-
 </RelativeLayout>

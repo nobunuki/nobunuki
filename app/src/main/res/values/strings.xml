@@ -5,5 +5,8 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="dashboard">Dashboard</string>
-    <string name="lokasi_a">Lokasi A</string>
+    <string-array name="dashboardbutton">
+        <item>Air Quality</item>
+        <item>Soil Moisture</item>
+    </string-array>
 </resources>
