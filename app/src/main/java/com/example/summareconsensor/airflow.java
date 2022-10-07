@@ -1,8 +1,10 @@
 package com.example.summareconsensor;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
